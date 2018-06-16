@@ -18,8 +18,8 @@ app.use(cors());
 app.use('/api', api);
 
 app.get('*', (req, res)=>{
-  res.send("res");
-  //res.sendFile(path.join(__dirname, 'dist/index.html'));
+  //res.send("res");
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 })
 
 app.listen(port, ()=>{
