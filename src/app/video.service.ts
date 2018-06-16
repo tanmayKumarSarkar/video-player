@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Video } from './video';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class VideoService {
 
   constructor(private http: Http) { }
 
-  apiUrl: string = 'http://localhost:3000' || '';
+  apiUrl: string = environment.production ? '' : 'http://localhost:3000';
 
   getVideos(){
       return this.http.get(this.apiUrl+'/api/videos')

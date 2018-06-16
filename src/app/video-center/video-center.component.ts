@@ -23,7 +23,7 @@ export class VideoCenterComponent implements OnInit {
 
     ngOnInit() {
       this.getVideos();
-      this.selectedVideo = this.videos[0];
+      //this.selectedVideo = this.videos[0];
     }
 
     newVideo(){
@@ -31,7 +31,10 @@ export class VideoCenterComponent implements OnInit {
     }
 
     getVideos(){
-      this.vs.getVideos().subscribe(resVid => this.videos = resVid);
+      this.vs.getVideos().subscribe((resVid) => {
+        this.videos = resVid;
+        this.selectedVideo = resVid[0];
+      });
     }
 
     onSubmitAddVideo(vid : Video){

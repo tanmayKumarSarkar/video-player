@@ -11,7 +11,7 @@ export class VideoDetailComponent implements OnInit {
 
   constructor() { }
   video: any;
-  private editTitle: boolean = false;
+  editTitle: boolean = false;
   private updateVideoEvent = new EventEmitter();
   private deleteVideoEvent = new EventEmitter();
 
