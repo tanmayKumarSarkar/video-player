@@ -6,6 +6,7 @@ const cors = require('cors');
 const api = require('./server/routes/api');
 
 const port = process.env.PORT || 3000;
+const environment = process.env.NODE_ENVIRONMENT;
 
 const app = express();
 
@@ -18,8 +19,11 @@ app.use(cors());
 app.use('/api', api);
 
 app.get('*', (req, res)=>{
-  //res.send("res");
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  if(environment == 'PROD'){
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  }else{
+    res.send('res');
+  }
 })
 
 app.listen(port, ()=>{

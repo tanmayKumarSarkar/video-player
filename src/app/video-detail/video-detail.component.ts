@@ -35,4 +35,8 @@ export class VideoDetailComponent implements OnInit {
     this.deleteVideoEvent.emit(this.video);
   }
 
+  ifrmclk(event: any){
+    console.log(event);
+  }
+
 }
